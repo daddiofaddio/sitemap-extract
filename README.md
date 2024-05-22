@@ -51,8 +51,8 @@ This script is designed to efficiently process XML sitemaps and extract URLs. It
 1. Doownload the zip file or clone the repository:
 
 ```bash
-    git clone https://github.com/yourusername/sitemap_processor.git
-    cd sitemap_processor
+    git clone https://github.com/daddiofaddio/sitemap-extract.git
+    cd sitemap-extract
 ```
 
 2. Ensure you have Python 3 installed.
@@ -68,9 +68,9 @@ This script is designed to efficiently process XML sitemaps and extract URLs. It
 ### Basic Usage
   
    ```bash
-    python -m sitemap_processor.sitemap_processor --url <sitemap_url>
-    python -m sitemap_processor.sitemap_processor --file <file_with_urls>
-    python -m sitemap_processor.sitemap_processor --directory <directory_with_xml_files>
+    python -m sitemap_extract.sitemap_extract --url <sitemap_url>
+    python -m sitemap_extract.sitemap_extract --file <file_with_urls>
+    python -m sitemap_extract.sitemap_extract --directory <directory_with_xml_files>
    ```
 
 ### Examples
@@ -78,19 +78,19 @@ This script is designed to efficiently process XML sitemaps and extract URLs. It
 Fetch a single sitemap directly from a URL (the script will automatically process the master sitemap and all nested sitemaps and generate a separate text file containing the source URL and all extracted URLs for each):
 
    ```bash
-    python -m sitemap_processor.sitemap_processor --url https://example.com/sitemap_index.xml
+    python -m sitemap_extract.sitemap_extract --url https://example.com/sitemap_index.xml
    ```
 
 Read a list of sitemap URLs from a file:
 
    ```bash
-    python -m sitemap_processor.sitemap_processor --file sitemaps.txt
+    python -m sitemap_extract.sitemap_extract --file sitemaps.txt
    ```
 
 Scan a directory for XML and compressed XML (.xml.gz) files:
 
    ```bash
-    python -m sitemap_processor.sitemap_processor --directory ./sitemaps/
+    python -m sitemap_extract.sitemap_extract --directory ./sitemaps/
    ```
 
 ### Additional Options
@@ -100,7 +100,7 @@ Scan a directory for XML and compressed XML (.xml.gz) files:
 Cloudscraper is enabled by default. To disable Cloudscraper and use standard requests:
 
    ```bash
-    python -m sitemap_processor.sitemap_processor --url <sitemap_url> --no-cloudscraper
+    python -m sitemap_extract.sitemap_extract --url <sitemap_url> --no-cloudscraper
    ```
 
 #### Enable/Disable Proxies
@@ -108,7 +108,7 @@ Cloudscraper is enabled by default. To disable Cloudscraper and use standard req
 To enable proxy support:
 
    ```bash
-     python -m sitemap_processor.sitemap_processor --url <sitemap_url> --proxy
+     python -m sitemap_extract.sitemap_extract --url <sitemap_url> --proxy
    ```
 
 ## Requirements
