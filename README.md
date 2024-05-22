@@ -1,6 +1,6 @@
 # sitemap-extract
 
-This script is designed to efficiently process XML sitemaps and extract URLs. It supports both plain XML and compressed XML (.xml.gz) files and can fetch sitemaps directly from URLs, from a file containing a list of URLs, or from a directory containing XML files. The script uses multithreading to speed up the processing and includes robust logging for monitoring its execution.
+This script is designed to efficiently process XML sitemaps and extract URLs. It supports both plain XML and compressed XML (.xml.gz) files and can fetch sitemaps directly from URLs, from a file containing a list of URLs, or from a directory containing XML files. The script uses multithreading to speed up the processing, allows for processing of unlimited nested/child sitemaps, and includes robust logging for monitoring its execution.
 
 ## Features
 
@@ -10,13 +10,13 @@ This script is designed to efficiently process XML sitemaps and extract URLs. It
    - Scan a directory for XML and compressed XML (.xml.gz) files.
 
 2. **User-Agent Rotation**:
-   - Randomly select user agents from a predefined list to mimic different browsers and avoid detection.
+   - Randomly select user agents from a predefined list to mimic different browsers and avoid detection (or use settings from Cloudscraper, or use both together, see below).
 
 3. **Cloudscraper Integration**:
    - Use Cloudscraper to handle requests, including bypassing anti-bot measures. This can be turned on or off.
 
 4. **Proxy Support**:
-   - Optionally use proxies for requests. This can be turned on or off.
+   - Optionally use rotating proxies for requests. This can be turned on or off.
 
 5. **Compressed File Handling**:
    - Automatically detect and decompress .gz files to extract XML content.
@@ -40,76 +40,76 @@ This script is designed to efficiently process XML sitemaps and extract URLs. It
 11. **Command-Line Interface**:
     - Use command-line arguments to specify the URL, file, or directory to process.
 
-12. **Highly Customizable**:
-    - Easily customize for various use cases and sitemap structures, including sitemaps with tens of millions of URLs.
+12. **Customizable**:
+    - Is customizable for various use cases and sitemap structures, including sitemaps with hundreds of nested sitemaps and millions of total URLs.
 
 13. **High Performance**:
-    - Designed for speed, capable of processing large sitemaps quickly.
+    - Speedy; capable of processing large sitemaps quickly.
 
 ## Installation
 
-1. Clone the repository:
+1. Doownload the zip file or clone the repository:
 
-    ```bash
+```bash
     git clone https://github.com/yourusername/sitemap_processor.git
     cd sitemap_processor
-    ```
+```
 
 2. Ensure you have Python 3 installed.
 
 3. Install the required dependencies:
 
-    ```bash
+```bash
     pip install -r requirements.txt
-    ```
+```
 
 ## Usage
 
 ### Basic Usage
   
-    ```bash
+   ```bash
     python -m sitemap_processor.sitemap_processor --url <sitemap_url>
     python -m sitemap_processor.sitemap_processor --file <file_with_urls>
     python -m sitemap_processor.sitemap_processor --directory <directory_with_xml_files>
-    ```
+   ```
 
 ### Examples
 
-Fetch a single sitemap directly from a URL:
+Fetch a single sitemap directly from a URL (the script will automatically process the master sitemap and all nested sitemaps and generate a separate text file containing the source URL and all extracted URLs for each):
 
-    ```bash
+   ```bash
     python -m sitemap_processor.sitemap_processor --url https://example.com/sitemap_index.xml
-    ```
+   ```
 
 Read a list of sitemap URLs from a file:
 
-    ```bash
+   ```bash
     python -m sitemap_processor.sitemap_processor --file sitemaps.txt
-    ```
+   ```
 
 Scan a directory for XML and compressed XML (.xml.gz) files:
 
-    ```bash
+   ```bash
     python -m sitemap_processor.sitemap_processor --directory ./sitemaps/
-    ```
+   ```
 
-### Advanced Options
+### Additional Options
 
-#### Turn on/off Cloudscraper
+#### Enable/Disable Cloudscraper
 
-To disable Cloudscraper and use standard requests:
+Cloudscraper is enabled by default. To disable Cloudscraper and use standard requests:
 
-    ```bash
+   ```bash
     python -m sitemap_processor.sitemap_processor --url <sitemap_url> --no-cloudscraper
-    ```
+   ```
 
-#### Turn on/off Proxy
+#### Enable/Disable Proxies
 
 To enable proxy support:
 
-     ```bash
+   ```bash
      python -m sitemap_processor.sitemap_processor --url <sitemap_url> --proxy
-     ```
+   ```
 
 ## Requirements
 
@@ -119,15 +119,11 @@ To enable proxy support:
 
 ## Customization
 
-In addition to proxies, users can choose to utilize the default or advanced options of Cloudscraper or use features such as rotating headers and user-agents directly in the script.
+In addition to proxies, users can choose to utilize the default or advanced options of Cloudscraper or use features such as rotating headers and user-agents directly in the script to better mimic different browsers and avoid detection.
 
 ### Proxy Configuration
 
 Proxies can be configured in the script or via environment variables.
-
-### Rotating Headers and User-Agents
-
-You can customize the list of user-agents and headers directly in the script to better mimic different browsers and avoid detection.
 
 ## Logging
 
@@ -136,11 +132,12 @@ Logs are saved to `sitemap_processing.log` in the following format:
 ```bash
 YYYY-MM-DD HH:MM:SS - LEVEL - Message
 ```
+## Output Files
 
-Each sitemap processed will also generate a separate text file containing the source URL and all extracted URLs.
+As noted above, each sitemap processed will also generate a separate text file containing the source URL and all extracted URLs.
 
-## Disclaimer
+## DISCLAIMER
 
-I am a self-taught, beginner coder. Although I found some similar repositories involving sitemap extraction, I couldn't find any that included all the features I needed for my projects. So I decided to write my first script from scratch. PLEASE GO EASY ON ME, HAHA. I have no idea about the quality of the code since I have no training, but it's worked astoundingly well with every site I've thrown at it so far. It's pretty fast but I've never encountered any issues with being blocked (or other errors), and it's been tested on sites with very different sitemap structures, including multiple sites with hundreds of nested/child sitemaps and millions of total URLs.
+I am a self-taught, beginner coder. Although I found some similar repositories involving sitemap extraction, I couldn't find any that included all the features I needed for my projects. So I decided to write one from scratch. PLEASE GO EASY ON ME, HAHA. I have no idea about the quality of the code since I have no training. It's worked well for me and I've never encountered any issues with being blocked (or other errors). It's been tested on sites with very different sitemap structures, including multiple sites with hundreds of nested/child sitemaps and millions of total URLs.
 
-Everyone on GitHub has been such a wonderful help to me -- hopefully this will help someone else. That said, if you find any major bugs, run into any major issues, or think it can otherwise be improved, please open an issue or let me know!
+Everyone on GitHub has been such a wonderful help -- hopefully this will help someone else. That said, if you find any major bugs, run into any major issues, or think it can otherwise be improved, please open an issue or let me know!
