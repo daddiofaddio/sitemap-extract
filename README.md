@@ -1,6 +1,6 @@
 # sitemap-extract
 
-This script is designed to efficiently process XML sitemaps and extract URLs. It supports both plain XML and compressed XML (.xml.gz) files and can fetch sitemaps directly from URLs, from a file containing a list of URLs, or from a directory containing XML files. The script uses multithreading to speed up the processing, allows for processing of unlimited nested/child sitemaps, and includes robust logging for monitoring its execution.
+This script is designed to efficiently process XML sitemaps and extract URLs. It supports both plain XML and compressed XML (.xml.gz) files and can fetch sitemaps directly from URLs, from a file containing a list of URLs, or from a directory containing XML files. The script uses multithreading to speed up processing, allows for processing of unlimited nested/child sitemaps, includes protection against anti-bot measures, optional features such as rotating proxies and headers/useragents, and includes detailed logging for monitoring its execution.
 
 ## Features
 
