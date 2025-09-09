@@ -1,0 +1,4 @@
+# Sample sitemap URLs for batch processing
+<https://www.example.com/sitemap.xml>
+<https://www.example.com/sitemap_index.xml>
+<https://www.example.com/sitemaps/sitemap.xml.gz>
