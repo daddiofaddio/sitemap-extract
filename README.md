@@ -2,7 +2,7 @@
 
 An advanced XML sitemap processor built for large-scale URL extraction, capable of bypassing most modern anti-bot protection systems. It supports plain XML and compressed XML files (.xml.gz), along with unlimited levels of nested/child sitemaps. It can fetch sitemaps directly from URLs, from a file containing multiple sitemap URLs, or from a local directory of XML files.
 
-Also features a number of optional and advanced settings such as rotating  dynamic proxy and user agent rotation, CloudScraper integration, fingerprint randomization, auto stealth mode, and includes detailed logging and monitoring.
+Also features a number of optional and advanced settings such as dynamic proxy and user agent rotation, CloudScraper integration, fingerprint randomization, auto stealth mode, and includes detailed logging and monitoring.
 
 ## Key Features
 
