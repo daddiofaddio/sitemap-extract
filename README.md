@@ -96,10 +96,10 @@ pip install -r requirements.txt
 
 ```bash
 # Simple sitemap extraction
-python3 sitemap_extract.py --url <https://example.com/sitemap.xml>
+python3 sitemap_extract.py --url https://example.com/sitemap.xml
 
 # With output directory
-python3 sitemap_extract.py --url <https://example.com/sitemap.xml> --save-dir ./results
+python3 sitemap_extract.py --url https://example.com/sitemap.xml --save-dir ./results
 ```
 
 ### Stealth Mode
